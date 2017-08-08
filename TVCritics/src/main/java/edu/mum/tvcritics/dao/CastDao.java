@@ -41,28 +41,40 @@ public class CastDao {
 	}
 
 	@Transactional
-	public Cast getCast(int castId) {
+	public Cast getCastbyId(int castId) {
 		Session session = sf.getCurrentSession();
-		Query query = session.createQuery("Select c from Cast c where c.id = :castid");
-		query.setParameter("castid", castId);
-		Cast cast = (Cast) query.uniqueResult();
+		Cast cast = (Cast)session.get(Cast.class,castId);
 		return cast;
 	}
 
 	@Transactional
-	public void castUpdate(int castId, Cast cast) {
+	public void castUpdate(Cast cast) {
 		Session session = sf.getCurrentSession();
-		Query query = session.createQuery("Update Cast c where c.id = :castid");
+		/*String name = cast.getName();
+		String birthPlace = cast.getBirthPlace();
+		String charcaterName = cast.getCharcaterName();
+		String biography = cast.getBiography();
+		Query query = session.createQuery("Update Cast c set c.name = :name, c.birthPlace = :birthPlace, c.charcaterName = :charcaterName, c.biography = :biography where c.id = :castid");
 		query.setParameter("castid", castId);
-		query.executeUpdate();
+		query.setParameter("name", name);
+		query.setParameter("birthPlace", birthPlace);
+		query.setParameter("charcaterName", charcaterName);
+		query.setParameter("biography", biography);
+		query.executeUpdate();*/
+		session.update(cast);
+		
 	}
 
 	@Transactional
 	public void castDelete(int castId) {
 		Session session = sf.getCurrentSession();
-		Query query = session.createQuery("Delete from Cast c where c.id = :castid");
-		query.setParameter("castid", castId);
-		query.executeUpdate();
+		//Query query = session.createQuery("Delete from Cast c where c.id = :castid");
+		//query.setParameter("castid", castId);
+		//query.executeUpdate();
+		Cast cast = (Cast)session.get(Cast.class,castId);
+		if(cast != null){
+			session.delete(cast);
+		}
 	}
 
 }

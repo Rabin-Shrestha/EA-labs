@@ -5,22 +5,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Casts</title>
+<title>Episodes</title>
 </head>
 <body>
-	<h1>Cast Information</h1>
+	<h1>Episode Information</h1>
 	<table>
-	<c:forEach var="cast" items="${casts}">
+	<c:forEach var="episode" items="${episodes}">
 	<tr>
-		<td>${cast.name}</td>
-		<td>${cast.birthPlace}</td>
-		<td>${cast.charcaterName}</td>
-		<td>${cast.biography}</td>
-		<%-- <td><a href="cast/${cast.id}">edit</a></td> --%>
+		<td>${episode.airedDate}</td>
+		<td>${episode.comment}</td>
+		<td>${episode.rating}</td>
+		<td>${episode.description}</td>
+		<td><a href="episodeEdit/${episode.id}">edit</a></td>
 	</tr>
 	</c:forEach>
 	</table>
 	
-	<a href="addCast"> Add a Cast</a>
+	<a href="addEpisode"> Add a Episode</a>
 </body>
 </html>

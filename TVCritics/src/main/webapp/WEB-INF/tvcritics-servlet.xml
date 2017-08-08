@@ -26,6 +26,14 @@
 	<bean id="castDao" class="edu.mum.tvcritics.dao.CastDao">
 		<constructor-arg ref="sessionFactory" />
 	</bean>
+	<!-- 
+	<bean id="episodeService" class="edu.mum.tvcritics.service.EpisodeService">
+		<constructor-arg ref="episodeDao" />
+	</bean>
+	
+	<bean id="episodeDao" class="edu.mum.tvcritics.dao.EpisodeDao">
+		<constructor-arg ref="sessionFactory" />
+	</bean> -->
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

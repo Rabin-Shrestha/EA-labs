@@ -14,7 +14,6 @@ public class CastService {
 	}
 
 	public void createCast(Cast cast) {
-		System.out.println("From Service: "+cast.getName());
 		castDao.createCast(cast);
 	}
 	
@@ -22,12 +21,12 @@ public class CastService {
 		return castDao.getAllCast();
 	}
 	
-	public Cast getCast(int castId){
-		return castDao.getCast(castId);
+	public Cast getCastbyId(int castId){
+		return castDao.getCastbyId(castId);
 	}
 	
-	public void castUpdate(int castId, Cast cast){
-		castDao.castUpdate(castId, cast);
+	public void castUpdate(Cast cast){
+		castDao.castUpdate(cast);
 	}
 	
 	public void castDelete(int castId){
